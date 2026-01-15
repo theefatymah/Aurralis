@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --deep-navy: #0C2C55;
+  --ocean-teal: #296374;
+  --sky-blue: #629FAD;
+  --cream: #EDEDCE;
+
+  --background: #0C2C55;
+  --foreground: #EDEDCE;
+  --card: #296374;
+  --card-hover: #3a7486;
+  --border: #629FAD;
+  --input: #296374;
+  --primary: #629FAD;
+  --primary-foreground: #0C2C55;
+  --secondary: #296374;
+  --secondary-foreground: #EDEDCE;
+  --muted: #296374;
+  --muted-foreground: #629FAD;
+  --accent: #629FAD;
+  --accent-foreground: #0C2C55;
+  --destructive: #ef4444;
+  --destructive-foreground: #EDEDCE;
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    /* Use all 4 colors in the gradient background */
+    background: linear-gradient(135deg,
+        #0C2C55 0%,
+        /* Deep Navy */
+        #296374 35%,
+        /* Ocean Teal */
+        #0C2C55 65%,
+        /* Deep Navy */
+        #1a3a50 100%
+        /* Blend */
+      );
+    background-attachment: fixed;
+    color: var(--cream);
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom Scrollbar - Using Sky Blue */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #0C2C55;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #629FAD 0%, #296374 100%);
+    border-radius: 10px;
+    border: 2px solid #0C2C55;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #629FAD;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Glass effect using Ocean Teal */
+  .glass-effect {
+    background: rgba(41, 99, 116, 0.25);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(98, 159, 173, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(98, 159, 173, 0.2);
+  }
+
+  .glass-effect-strong {
+    background: rgba(41, 99, 116, 0.5);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 2px solid rgba(98, 159, 173, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(98, 159, 173, 0.3);
+  }
+
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .transition-bounce {
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .shimmer {
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(98, 159, 173, 0.4) 50%,
+        transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  /* Gradient using Sky Blue and Cream */
+  .gradient-text {
+    background: linear-gradient(135deg, #629FAD 0%, #EDEDCE 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Border gradient using Ocean Teal and Sky Blue */
+  .gradient-border {
+    border: 2px solid transparent;
+    background: linear-gradient(#0C2C55, #0C2C55) padding-box,
+      linear-gradient(135deg, #629FAD, #296374) border-box;
+  }
+
+  .glow-on-hover {
+    transition: all 0.3s ease;
+  }
+
+  .glow-on-hover:hover {
+    box-shadow: 0 0 20px rgba(98, 159, 173, 0.6),
+      0 0 40px rgba(98, 159, 173, 0.4);
+    transform: translateY(-2px);
+  }
+
+  /* Color-specific backgrounds */
+  .bg-deep-navy {
+    background-color: #0C2C55;
+  }
+
+  .bg-ocean-teal {
+    background-color: #296374;
+  }
+
+  .bg-sky-blue {
+    background-color: #629FAD;
+  }
+
+  .bg-cream {
+    background-color: #EDEDCE;
+  }
+
+  /* Color-specific text */
+  .text-deep-navy {
+    color: #0C2C55;
+  }
+
+  .text-ocean-teal {
+    color: #296374;
+  }
+
+  .text-sky-blue {
+    color: #629FAD;
+  }
+
+  .text-cream {
+    color: #EDEDCE;
+  }
+
+  /* Accent cards using all colors */
+  .card-navy {
+    background: linear-gradient(135deg, #0C2C55 0%, #153555 100%);
+    border: 2px solid #296374;
+  }
+
+  .card-teal {
+    background: linear-gradient(135deg, #296374 0%, #3a7486 100%);
+    border: 2px solid #629FAD;
+  }
+
+  .card-blue {
+    background: linear-gradient(135deg, #629FAD 0%, #7FB7C7 100%);
+    border: 2px solid #EDEDCE;
+  }
+
+  .card-cream {
+    background: linear-gradient(135deg, #EDEDCE 0%, #F9F9F3 100%);
+    border: 2px solid #629FAD;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
